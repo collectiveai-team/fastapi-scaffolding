@@ -1,0 +1,6 @@
+{
+    "project_slug": "my_python_project",
+    "api_module_name": "api",
+    "pre_build_command": "touch .env",
+    "base_image": "my_python_project"
+}
