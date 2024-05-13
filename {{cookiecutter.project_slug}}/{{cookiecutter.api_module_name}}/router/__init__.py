@@ -1,1 +1,0 @@
-from .router import get_api_router # noqa

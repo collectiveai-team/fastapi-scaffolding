@@ -1,7 +1,9 @@
-from {{cookiecutter.api_module_name}}.router import get_api_router
+from fastapi import APIRouter
 from {{cookiecutter.api_module_name}}.meta.api_meta import ModelInput, ModelOutput
 
-router = get_api_router()
+# Custom APIRouter
+router = APIRouter()
+
 
 @router.get("", response_model=ModelOutput)
 async def login_for_access_token(

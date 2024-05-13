@@ -3,7 +3,6 @@ from fastapi import FastAPI, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from {{cookiecutter.api_module_name}}.logger import get_logger
-from {{cookiecutter.api_module_name}}.router import get_api_router
 from {{cookiecutter.api_module_name}}.endpoints import login, basics, model
 from {{cookiecutter.api_module_name}}.auth import get_current_user
 
@@ -37,12 +36,10 @@ async def unicorn_exception_handler(request: Request, exc: Exception):
     )
 
 
-api_router = get_api_router()
+# Basic and login routes
 
-### Basic and login routes
-
-api_router.include_router(login.router, tags=["login"])
-api_router.include_router(basics.router, prefix="/basics", tags=["basics"])
-api_router.include_router(model.router, prefix="/predict", tags=["basics"], dependencies=[Depends(get_current_user)])
+app.include_router(login.router, tags=["login"])
+app.include_router(basics.router, prefix="/basics", tags=["basics"])
+app.include_router(model.router, prefix="/predict", tags=["basics"], dependencies=[Depends(get_current_user)])
 
 

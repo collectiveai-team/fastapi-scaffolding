@@ -1,8 +1,8 @@
-from {{cookiecutter.api_module_name}}.router import get_api_router
+from fastapi import APIRouter
 from {{cookiecutter.api_module_name}}.meta.api_meta import Health, Version
 
 # Custom APIRouter
-router = get_api_router()
+router = APIRouter()
 
 
 @router.get("health", response_model=Health)
