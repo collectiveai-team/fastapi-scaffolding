@@ -38,7 +38,7 @@ async def unicorn_exception_handler(request: Request, exc: Exception):
 
 # Basic and login routes
 
-app.include_router(login.router, tags=["login"])
+app.include_router(login.router, prefix="/token", tags=["login"])
 app.include_router(basics.router, prefix="/basics", tags=["basics"])
 app.include_router(model.router, prefix="/predict", tags=["basics"], dependencies=[Depends(get_current_user)])
 

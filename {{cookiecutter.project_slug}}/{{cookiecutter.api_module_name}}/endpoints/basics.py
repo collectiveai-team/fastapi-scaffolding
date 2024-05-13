@@ -5,7 +5,7 @@ from {{cookiecutter.api_module_name}}.meta.api_meta import Health, Version
 router = APIRouter()
 
 
-@router.get("health", response_model=Health)
+@router.get("/health", response_model=Health)
 def health(
 ) -> Health:
     """
@@ -13,7 +13,7 @@ def health(
     """
     return Health(status="UP", message="Service is running")
 
-@router.get("version", response_model=Health)
+@router.get("/version", response_model=Health)
 def version(
 ) -> Version:
     """
