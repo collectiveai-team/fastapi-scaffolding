@@ -19,23 +19,14 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 
-if os.getenv("ENV", "local") == "prod":
-    users_db = {
-        "seeds_back": {
-            "username": "seeds_back",
-            "hashed_password": "$2b$12$v3LuuXGeNz2PuD6F3lfnVObSLCeD.T3K286xK.HaTxShp/rIS/Vz6",  # noqa
-            #"hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",  # noqa
-            "disabled": False,
-        },
+
+users_db = {
+    "api": {
+        "username": "api",
+        "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",  # noqa
+        "disabled": False,
     }
-else:
-    users_db = {
-        "api_seeds": {
-            "username": "api_seeds",
-            "hashed_password": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",  # noqa
-            "disabled": False,
-        }
-    }
+}
 
 
 
