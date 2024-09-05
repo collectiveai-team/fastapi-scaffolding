@@ -16,7 +16,7 @@ origins = (
 
 origins = [origin.strip() for origin in origins.split(",")]
 
-logger.info("Running version: 2.0.2")
+logger.info("Running version: 0.0.1")
 logger.info(f"Origins: {origins}")
 
 app = FastAPI()
@@ -32,7 +32,7 @@ app.add_middleware(
 async def unicorn_exception_handler(request: Request, exc: Exception):
     return HTTPException(
         status_code=500,
-        content={"message": f"Oops! {exc.name} did something. There goes a rainbow..."},
+        content={"message": f"Oops! There goes a rainbow..."},
     )
 
 
@@ -40,6 +40,6 @@ async def unicorn_exception_handler(request: Request, exc: Exception):
 
 app.include_router(login.router, prefix="/token", tags=["login"])
 app.include_router(basics.router, prefix="/basics", tags=["basics"])
-app.include_router(model.router, prefix="/predict", tags=["basics"], dependencies=[Depends(get_current_user)])
+app.include_router(model.router, prefix="/predict", tags=["model"], dependencies=[Depends(get_current_user)])
 
 

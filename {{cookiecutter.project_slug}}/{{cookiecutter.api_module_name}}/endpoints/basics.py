@@ -13,7 +13,7 @@ def health(
     """
     return Health(status="UP", message="Service is running")
 
-@router.get("/version", response_model=Health)
+@router.get("/version", response_model=Version)
 def version(
 ) -> Version:
     """
